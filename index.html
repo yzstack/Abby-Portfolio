@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abby Art Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <h1>Abby Araniego</h1>
+    <div>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#resume">Resume</a>
+    </div>
+  </nav>
+
+  <header>
+    <h2>Art Portfolio</h2>
+    <p>Selected works, sketches, and visual experiments.</p>
+  </header>
+
+  <main>
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Abby is an artist exploring color, memory, and texture.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: abby@example.com</p>
+    </section>
+  </main>
+
+  <script>
+    async function loadArtworks() {
+      const gallery = document.getElementById("gallery");
+
+      const artworks = [
+        {
+          title: "Blue Study",
+          image: "/images/uploads/blue-study.jpg",
+          medium: "Acrylic on canvas",
+          year: "2025",
+          description: "A quiet study of blue tones and texture."
+        }
+      ];
+
+      gallery.innerHTML = artworks.map(art => `
+        <article class="card">
+          <img src="${art.image}" alt="${art.title}">
+          <div>
+            <h3>${art.title}</h3>
+            <p>${art.medium} · ${art.year}</p>
+            <p>${art.description}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    loadArtworks();
+  </script>
+</body>
+</html>
